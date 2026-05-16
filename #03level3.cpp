@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cstdlib>
+#include <iomanip>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	int randomnum = rand() % (To - From + 1) + From;
+	return randomnum;
+}
+void FillMatrix3By3WithRandomNumber(int arr[3][3], short row, short col)
+{
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < col; j++)
+		{
+			arr[i][j] = RandomNumber(1, 100);
+		}
+
+	}
+}
+void PrintMatrex(int arr[3][3], short row, short col)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << setw(3) << arr[i][j] << "  ";
+		}
+		cout << endl;
+
+	}
+}
+int RowSum(int arr[3][3], short Row, short Col)
+{
+	int Sum = 0;
+	for (int j = 0; j <= Col - 1; j++)
+	{
+		Sum += arr[Row][j];
+	}
+	return Sum;
+}
+void SumMatrixRowInArray(int arr[3][3], int arrSum[3] , short Row, short Col)
+{
+	for (int i = 0; i < Row; i++)
+	{
+	 arrSum[i]=RowSum(arr, i, Col);
+	}
+}
+void PrintRowSumsArray(int arrSum[3], int i)
+{
+	cout << "The Results Of The Sum is " << endl;
+	for (i = 0; i < 3; i++)
+	{
+		cout <<"The Sum Of RoW "<<i+1<< " = "<<arrSum[i] << endl;
+    }
+}
+
+int main()
+{
+	int arr[3][3]; int arrSum[3];
+	srand((unsigned)time(NULL));
+	FillMatrix3By3WithRandomNumber(arr, 3, 3);
+	cout << "The Random Number of Matrex [3][3] is : " << endl;
+	PrintMatrex(arr, 3, 3);
+	SumMatrixRowInArray(arr,arrSum , 3, 3);
+	PrintRowSumsArray(arrSum, 3);
+	return 0;
+}
