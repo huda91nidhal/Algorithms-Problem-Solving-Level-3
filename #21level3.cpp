@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+void FibonacciSeriesUsingLoop(short Number)
+{
+    int FibNumber = 0;
+    int Prev1 = 1, Prev2 = 0;
+    cout << "1   ";
+    for (int i = 2; i <= Number; i++)
+    {
+     FibNumber = Prev1 + Prev2;
+     cout << FibNumber << "   ";
+     Prev2 = Prev1;
+     Prev1 = FibNumber;
+    }
+}
+int main()
+{
+    FibonacciSeriesUsingLoop(10);
+   
+   system("pause>0");
+}
