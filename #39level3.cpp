@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cctype>
+#include <vector>
+using namespace std;
+string JoinString(vector <string> vString , string delim)
+{
+	string S1="";
+	for (string& s : vString)
+	{
+		S1 = S1 + s + delim;
+	}
+	return S1.substr(0, S1.length() - delim.length());
+}
+int main()
+{
+	vector <string> vString{ "Mohamed" , "Ahmed" , "Rami" , "Ali" };
+	cout << endl << "Your String After Join is : " << endl;
+	cout << JoinString(vString, " ")<<endl;
+}
