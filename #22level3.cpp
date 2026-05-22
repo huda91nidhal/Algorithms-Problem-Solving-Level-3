@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+void FibonacciSeriesUsingRecurssion(int Prev1 , int Prev2 , short Number)
+{
+    int FibNumber = 0;
+    if (Number > 0 )
+    {
+        FibNumber = Prev1 + Prev2;
+        Prev2 = Prev1;
+        Prev1 = FibNumber;
+        cout << FibNumber << "   ";
+        FibonacciSeriesUsingRecurssion(Prev1 , Prev2 , Number - 1);
+    }
+}
+int main()
+{
+    FibonacciSeriesUsingRecurssion(0,1,10);
+
+    system("pause>0");
+}
