@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+string ReadString()
+{
+	string Text;
+	cout << "Please Enter Your String :" << endl;
+	getline(cin, Text);
+	return Text;
+}
+vector <string> SpiltString(string S1, string delim)
+{
+	vector <string> vString;
+	short pos = 0;
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+		sWord = S1.substr(0, pos);
+		if (sWord != "")
+		{
+			vString.push_back(sWord);
+		}
+		S1.erase(0, pos + delim.length());
+	}
+	if (S1 != "")
+	{
+		vString.push_back(S1);
+	}
+	return vString;
+}
+int main()
+{
+	vector <string> vString;
+	vString = SpiltString(ReadString(), " ");
+	cout << endl << "Token = " << vString.size() << endl;
+	for (string &s : vString)
+	{
+		cout << s << endl;
+	}
+	return 0;
+}
